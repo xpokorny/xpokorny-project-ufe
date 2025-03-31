@@ -7,12 +7,11 @@ describe('xpokorny-project-wl-list', () => {
       components: [XpokornyProjectWlList],
       html: `<xpokorny-project-wl-list></xpokorny-project-wl-list>`,
     });
-    expect(page.root).toEqualHtml(`
-      <xpokorny-project-wl-list>
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
-      </xpokorny-project-wl-list>
-    `);
+
+    const wlList = page.rootInstance as XpokornyProjectWlList;
+    const expectedPatients = wlList?.waitingPatients?.length
+
+    const items = page.root.shadowRoot.querySelectorAll("md-list-item");
+    expect(items.length).toEqual(expectedPatients);
   });
 });
