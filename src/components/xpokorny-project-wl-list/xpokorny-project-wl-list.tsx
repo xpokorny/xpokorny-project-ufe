@@ -29,7 +29,13 @@ export class XpokornyProjectWlList {
           estimatedStart: new Date(Date.now() + 5 * 60),
           estimatedDurationMinutes: 15,
           condition: 'Bolesti hrdla'
-      }]
+      }, {
+        name: 'Tester Testovič',
+        patientId: 'TEST',
+        estimatedStart: new Date(Date.now() + 5 * 60),
+        estimatedDurationMinutes: 15,
+        condition: 'Nič'
+    }]
     );
   }
 
