@@ -9,9 +9,9 @@ describe('xpokorny-project-wl-list', () => {
     });
 
     const wlList = page.rootInstance as XpokornyProjectWlList;
-    const expectedPatients = wlList?.waitingPatients?.length
+    const expectedReservations = wlList?.myReservations?.length
 
     const items = page.root.shadowRoot.querySelectorAll("md-list-item");
-    expect(items.length).toEqual(expectedPatients);
+    expect(items.length).toEqual(expectedReservations);
   });
 });
