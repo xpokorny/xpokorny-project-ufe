@@ -20,8 +20,17 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface XpokornyAmbulanceWlApp {
+        "basePath": string;
+    }
+    interface XpokornyAmbulanceWlEditor {
+    }
     interface XpokornyProjectWlList {
     }
+}
+export interface XpokornyProjectWlListCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLXpokornyProjectWlListElement;
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -30,7 +39,30 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLXpokornyAmbulanceWlAppElement extends Components.XpokornyAmbulanceWlApp, HTMLStencilElement {
+    }
+    var HTMLXpokornyAmbulanceWlAppElement: {
+        prototype: HTMLXpokornyAmbulanceWlAppElement;
+        new (): HTMLXpokornyAmbulanceWlAppElement;
+    };
+    interface HTMLXpokornyAmbulanceWlEditorElement extends Components.XpokornyAmbulanceWlEditor, HTMLStencilElement {
+    }
+    var HTMLXpokornyAmbulanceWlEditorElement: {
+        prototype: HTMLXpokornyAmbulanceWlEditorElement;
+        new (): HTMLXpokornyAmbulanceWlEditorElement;
+    };
+    interface HTMLXpokornyProjectWlListElementEventMap {
+        "entry-clicked": string;
+    }
     interface HTMLXpokornyProjectWlListElement extends Components.XpokornyProjectWlList, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLXpokornyProjectWlListElementEventMap>(type: K, listener: (this: HTMLXpokornyProjectWlListElement, ev: XpokornyProjectWlListCustomEvent<HTMLXpokornyProjectWlListElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLXpokornyProjectWlListElementEventMap>(type: K, listener: (this: HTMLXpokornyProjectWlListElement, ev: XpokornyProjectWlListCustomEvent<HTMLXpokornyProjectWlListElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLXpokornyProjectWlListElement: {
         prototype: HTMLXpokornyProjectWlListElement;
@@ -38,6 +70,8 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "xpokorny-ambulance-wl-app": HTMLXpokornyAmbulanceWlAppElement;
+        "xpokorny-ambulance-wl-editor": HTMLXpokornyAmbulanceWlEditorElement;
         "xpokorny-project-wl-list": HTMLXpokornyProjectWlListElement;
     }
 }
@@ -56,10 +90,18 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface XpokornyAmbulanceWlApp {
+        "basePath"?: string;
+    }
+    interface XpokornyAmbulanceWlEditor {
+    }
     interface XpokornyProjectWlList {
+        "onEntry-clicked"?: (event: XpokornyProjectWlListCustomEvent<string>) => void;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "xpokorny-ambulance-wl-app": XpokornyAmbulanceWlApp;
+        "xpokorny-ambulance-wl-editor": XpokornyAmbulanceWlEditor;
         "xpokorny-project-wl-list": XpokornyProjectWlList;
     }
 }
@@ -68,6 +110,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "xpokorny-ambulance-wl-app": LocalJSX.XpokornyAmbulanceWlApp & JSXBase.HTMLAttributes<HTMLXpokornyAmbulanceWlAppElement>;
+            "xpokorny-ambulance-wl-editor": LocalJSX.XpokornyAmbulanceWlEditor & JSXBase.HTMLAttributes<HTMLXpokornyAmbulanceWlEditorElement>;
             "xpokorny-project-wl-list": LocalJSX.XpokornyProjectWlList & JSXBase.HTMLAttributes<HTMLXpokornyProjectWlListElement>;
         }
     }
